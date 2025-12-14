@@ -154,23 +154,16 @@ async function loadDreams() {
 // =================================================================
 
 async function decodeDream() {
-    // ... (Your decodeDream logic remains mostly the same, as headers were correct) ...
-    // Note: The element fetching logic inside this function is less efficient 
-    // than defining them globally, but it works for a standalone decoder page.
     const dreamInput = document.getElementById('dreamInput');
+    if (!dreamInput) return; // ✅ FIX
+
     const loadingMessage = document.getElementById('loadingMessage');
     const decoderOutput = document.getElementById('decoderOutput');
     const outputSummary = document.getElementById('outputSummary');
     const outputEmotion = document.getElementById('outputEmotion');
 
-    if (!dreamInput || !loadingMessage || !decoderOutput || !outputSummary || !outputEmotion) {
-        console.error('Some required HTML elements are missing.');
-        alert('Application Error: Missing required display elements.');
-        return;
-    }
-
     const input = dreamInput.value.trim();
-    if (input === "") {
+    if (!input) {
         alert("Please describe your dream before decoding.");
         return;
     }
@@ -194,72 +187,19 @@ async function decodeDream() {
             body: JSON.stringify({ dreamText: input })
         });
 
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-
         const data = await response.json();
+
         loadingMessage.style.display = 'none';
         decoderOutput.style.display = 'block';
         outputSummary.textContent = data.decoded || 'Unable to decode dream';
         outputEmotion.textContent = data.emotion || 'Unable to determine emotion';
 
         decoderOutput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
     } catch (error) {
         console.error('Error:', error);
         loadingMessage.style.display = 'none';
         alert('Error decoding dream. Please try again.');
-    }
-}
-
-async function saveDreamEntry(event) {
-    const dreamInput = document.getElementById('dreamInput');
-    if (!dreamInput) return;
-
-    const dreamText = dreamInput.value.trim();
-    if (!dreamText) {
-        alert("No dream to save.");
-        return;
-    }
-
-    const token = localStorage.getItem('token');
-    if (!token) {
-        window.location.href = 'login.html';
-        return;
-    }
-
-    const btn = event.target;
-    if (!btn) return;
-
-    btn.disabled = true;
-    btn.textContent = '💾 Saving...';
-
-    try {
-        const response = await fetch(`${API}/decoder/save`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': getAuthHeader()
-            },
-            body: JSON.stringify({ title: 'Decoded Dream', description: dreamText, emotions: ['Analyzed'] })
-        });
-
-        if (response.ok) {
-            btn.textContent = '✓ Saved!';
-            btn.style.background = '#43e97b';
-            setTimeout(() => {
-                btn.textContent = '💾 Save Dream to Journal';
-                btn.style.background = '';
-                btn.disabled = false;
-            }, 2000);
-        } else {
-            alert('Error saving dream.');
-            btn.textContent = '💾 Save Dream to Journal';
-            btn.disabled = false;
-        }
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Error saving dream. Check server connection.');
-        btn.textContent = '💾 Save Dream to Journal';
-        btn.disabled = false;
     }
 }
 
@@ -615,6 +555,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
 
 
