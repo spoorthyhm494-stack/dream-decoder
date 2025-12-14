@@ -1,0 +1,5 @@
+{
+  "installCommand": "echo 'Skipping install for static site'",
+  "buildCommand": "echo 'No build command needed for static site'",
+  "outputDirectory": "Fro1"
+}
