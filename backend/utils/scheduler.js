@@ -1,7 +1,7 @@
 // utils/scheduler.js
 import cron from "node-cron";
 import Reminder from "../models/Reminder.js";
-import Roadmap from "../models/Roadmap.js";
+import Roadmap from "../models/roadmap.js";
 import User from "../models/User.js";
 import { sendEmail } from "./emailService.js";
 import { sendPush } from "./pushService.js";
@@ -247,3 +247,4 @@ export const scheduleDailyStreakCheck = () => {
 
   console.log("🔁 Daily streak check scheduled (00:00 Asia/Kolkata)");
 };
+
