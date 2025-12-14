@@ -1,5 +1,5 @@
 // --- Imports based on your confirmed file structure ---
-import Progress from "../models/Progress.js";        // ✅ Corrected to lowercase 'progress.js'
+import Progress from "../models/progress.js";        // ✅ Corrected to lowercase 'progress.js'
 import Roadmap from "../models/roadmap.js";          // ✅ Corrected to lowercase 'roadmap.js'
 import FutureMessage from "../models/FutureMessage.js"; // ✅ Correct (Capital F & M)
 
@@ -67,4 +67,5 @@ export const getProgress = async (req, res) => {
     console.error("GET PROGRESS ERROR:", err);
     return res.status(500).json({ message: "Server error during progress aggregation" });
   }
+
 };
