@@ -1,5 +1,5 @@
 import express from "express";
-import { runAI } from "../utils/aiUtils.js";
+import { runAI } from "../utils/aiutils.js";
 
 const router = express.Router();
 
@@ -19,5 +19,6 @@ router.post("/generate", async (req, res) => {
 });
 
 export default router;
+
 
 
