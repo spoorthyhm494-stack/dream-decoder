@@ -1,4 +1,4 @@
-const API = "http://localhost:5000/api";
+const API = "https://dream-decoder-backend.onrender.com/";
 
 // =================================================================
 // 1. GLOBAL ELEMENT DEFINITIONS
@@ -613,4 +613,5 @@ document.addEventListener('DOMContentLoaded', () => {
         createRoadmapBtn.addEventListener("click", createRoadmap);
         fetchRoadmaps(); // Also loads the list if on the roadmap page
     }
+
 });
