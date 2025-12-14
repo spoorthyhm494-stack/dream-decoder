@@ -12,6 +12,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@huggingface/inference": "^4.13.4",
     "agenda": "^5.0.0",
@@ -30,3 +33,4 @@
     "nodemon": "^3.1.11"
   }
 }
+
