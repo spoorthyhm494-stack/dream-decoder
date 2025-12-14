@@ -35,19 +35,35 @@
 
     <h2>Your Progress</h2>
     <div id="progress">Loading...</div>
+<h2>Quick Dream Decode</h2>
 
-    <h2>Quick Dream Decode</h2>
-    <textarea id="dreamText" placeholder="Type a short dream..."></textarea>
-    <button onclick="decodeDream()">Decode Dream</button>
-    <p id="decodedResult"></p>
-    <h2>Smart Notifications</h2>
-<div id="reminders">No new notifications.</div>
+<textarea id="dreamInput" placeholder="Type a short dream..."></textarea>
 
- 
+<button onclick="decodeDream()">Decode Dream</button>
+
+<p id="loadingMessage" style="display:none;">
+    🔮 Decoding your dream...
+</p>
+
+<div id="decoderOutput" style="display:none;">
+    <h3>Dream Summary</h3>
+    <p id="outputSummary"></p>
+
+    <h3>Emotion Detected</h3>
+    <p id="outputEmotion"></p>
+
+    <button onclick="saveDreamEntry(event)">
+        💾 Save Dream to Journal
+    </button>
 </div>
 
+<h2>Smart Notifications</h2>
+<div id="reminders">No new notifications.</div>
+
 <script src="script.js"></script>
+   
 </body>
 </html>
 
   
+
