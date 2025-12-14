@@ -1,4 +1,4 @@
-const API = "https://dream-decoder-backend.onrender.com/api";
+const API = "https://dream-decoder-backend.onrender.com";
 
 // =================================================================
 // 1. GLOBAL ELEMENT DEFINITIONS
@@ -615,5 +615,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
 
