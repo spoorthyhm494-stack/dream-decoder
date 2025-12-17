@@ -233,7 +233,7 @@ async function saveDreamEntry(event) {
     btn.textContent = '💾 Saving...';
 
     try {
-        const response = await fetch(`${API}/decoder/save`, {
+        const response = await fetch(`${API}/decoder/create`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -615,6 +615,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 });
+
 
 
 
