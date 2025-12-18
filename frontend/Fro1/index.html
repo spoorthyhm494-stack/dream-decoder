@@ -97,15 +97,15 @@
 <body>
 
 <header style="padding: 25px; text-align: right;">
-    <a href="index.html" class="auth-tab" onclick="showAuth('login')" style="margin-right: 10px;">Login</a>
-    <a href="index.html" class="cta-button" onclick="showAuth('signup')" style="padding: 10px 20px; font-size: 1em;">Sign Up</a>
+    <a href="auth.html" class="auth-tab" onclick="showAuth('login')" style="margin-right: 10px;">Login</a>
+    <a href="auth.html" class="cta-button" onclick="showAuth('signup')" style="padding: 10px 20px; font-size: 1em;">Sign Up</a>
 </header>
 
 <main>
     <section class="hero-section">
         <h1>DreamRoad: The Architecture of Your Life</h1>
         <p>Unlock the wisdom of your subconscious. DreamRoad uses AI to translate your dreams into personalized roadmaps, progress trackers, and powerful future reminders.</p>
-        <a href="index.html" class="cta-button" onclick="showAuth('signup')">Start Your Free Journey Now</a>
+        <a href="auth.html" class="cta-button" onclick="showAuth('signup')">Start Your Free Journey Now</a>
     </section>
 
     <div class="container" style="background: none; box-shadow: none; backdrop-filter: none; padding-top: 50px;">
@@ -142,7 +142,7 @@
     <footer>
         <h2 style="color: #8a7ce8; font-size: 2em;">Ready to build a better tomorrow?</h2>
         <p style="color: #6a6a82; font-size: 1.1em; margin-bottom: 30px;">It takes less than 30 seconds to begin.</p>
-        <a href="index.html" class="cta-button" onclick="showAuth('signup')">Sign Up and Begin Decoding</a>
+        <a href="auth.html" class="cta-button" onclick="showAuth('signup')">Sign Up and Begin Decoding</a>
     </footer>
 </main>
 
@@ -151,11 +151,12 @@
     // and calls the JS function (showAuth) to display the correct form.
     function showAuth(formType) {
         // This function is placeholder. In a real scenario, you'd navigate to your login/signup page.
-        // Since your index.html IS the login/signup page, this will simply trigger the form switch.
-        // You need to ensure your full index.html (authentication hub) has the showAuth JS function.
+        // Since your auth.html IS the login/signup page, this will simply trigger the form switch.
+        // You need to ensure your full auth.html (authentication hub) has the showAuth JS function.
         console.log(`Navigating to ${formType} form.`);
     }
 </script>
 
 </body>
+
 </html>
