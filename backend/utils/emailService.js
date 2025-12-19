@@ -5,8 +5,8 @@ export const sendEmail = async (to, subject, text) => {
   try {
     const transporter = nodemailer.createTransport({
       host: "smtp.sendgrid.net", // Example host
-      port: 587,
-      secure: false, 
+      port: 465,
+      secure: true, 
       auth: {
         user: "apikey", // Often the username for these services is 'apikey'
         pass: process.env.SENDGRID_API_KEY // Use a single, secure API key
@@ -24,4 +24,5 @@ export const sendEmail = async (to, subject, text) => {
   } catch (err) {
     console.error("Email error:", err);
   }
+
 };
