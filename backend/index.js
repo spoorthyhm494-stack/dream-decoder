@@ -52,7 +52,9 @@ app.use("/api/reminders", protect, reminderRoutes);
 
 // ---------------------- ROOT ----------------------
 app.get("/", (req, res) => res.send("API is running..."));
-
+app.get("/ping", (req, res) => {
+  res.status(200).send("Server is awake");
+});
 // ---------------------- 404 & GLOBAL ERROR HANDLER ----------------------
 app.use((req, res) => res.status(404).json({ message: "Endpoint not found" }));
 app.use((err, req, res, next) => {
@@ -84,4 +86,5 @@ app.listen(PORT, async () => {
     console.error("Error scheduling existing reminders:", err);
   }
 });
+
 
